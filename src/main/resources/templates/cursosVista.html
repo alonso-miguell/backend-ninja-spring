@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Horas</th>
+        </tr>
+    </thead>
+    <tbody th:each="curso:${listaCursos}">
+        <tr>
+            <th th:text="${curso.nombre}"></th>
+            <th th:text="${curso.descripcion}"></th>
+            <th th:text="${curso.precio}"></th>
+            <th th:text="${curso.horas}"></th>
+        </tr>
+    </tbody>
+</table>
+
+<form action="#" th:action="@{/cursos/addcurso}" th:object="${nuevoCurso}" method="POST">
+    <!-- el * se utiliza para asignacion de dato -->
+    <p>NOMBRE: <input type="text" th:field="*{nombre}"></p>
+    <!-- fields es el objeto de validacion -->
+    <!-- <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> Name tiene erorres</p> -->
+    <p>DESCRIPCION</p>: <input type="text" th:field="*{descripcion}"></p>
+    <!-- <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"> Age tiene erorres</p> -->
+    <p>PRECIO</p>: <input type="number" th:field="*{precio}"></p>
+    <p>HORAS</p>: <input type="number" th:field="*{horas}"></p>
+    <p> <input type="submit" value="Enviar"></p>
+</form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Hola mundo</title>
+
+ 
+
+</head>
+
+<body>
+
+<h1>HOLA <span th:text="${nombre_en_Modelo}"> </span> !!</h1>
+
+<form action="#" th:action="@{/ejemplo/addperson}" th:object="${personPOST}" method="POST">
+    <!-- el * se utiliza para asignacion de dato -->
+    <p>NOMBRE: <input type="text" th:field="*{name}"></p>
+    <!-- fields es el objeto de validacion -->
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> Name tiene erorres</p>
+    <p>EDAD</p>: <input type="number" th:field="*{age}"></p>
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"> Age tiene erorres</p>
+    <p> <input type="submit" value="Enviar"></p>
+</form>
+
+</body>
+
+</html>

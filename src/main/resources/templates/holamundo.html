@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Hola mundo</title>
+
+ 
+
+</head>
+
+<body>
+
+<h1>HOLA <span th:text="${nameVar}"> </span> !!</h1>
+<h1>HOLA <span th:text="${person.name}"> </span> !!</h1>
+<h1>EDAD <span th:text="${person.age}"> </span> !!</h1>
+<!-- <h1>EDAD <span > "${person.age}" </span> !!</h1> -->
+ <table>
+     <thead>
+         <tr>
+             <th>NAME</th>
+             <th>AGE</th>
+         </tr>
+     </thead>
+     <tbody th:each="persona : ${people}">
+         <tr>
+             <th th:text="${persona.name}"></th>
+             <th th:text="${persona.age}"></th>
+         </tr>
+     </tbody>
+ </table>
+
+
+</body>
+
+</html>
